@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>💕 BILAL | Mere Dil Ki Baat 💕</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Dancing Script', 'Poppins', 'Noto Nastaliq Urdu', cursive;
+            background: linear-gradient(135deg, #fff8f8 0%, #ffeef1 45%, #fff5e9 100%);
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Animated Stars Background */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            color: rgba(214,51,84,0.25);
+            font-size: 12px;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Floating Hearts */
+        .heart-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .heart {
+            position: absolute;
+            color: rgba(214,20,54,0.22);
+            font-size: 20px;
+            animation: floatHeart 10s infinite ease-in-out;
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.4;
+            }
+            100% {
+                transform: translateY(-20vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 650px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Main Card */
+        .card {
+            background: rgba(255,255,255,0.98);
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: 0 30px 70px rgba(214,20,54,0.18), 0 8px 20px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(214,20,54,0.08);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Header with Romantic Design */
+        .header {
+            background: linear-gradient(135deg, #d61436 0%, #ff3d68 55%, #ffb020 100%);
+            padding: 50px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '❤️';
+            position: absolute;
+            font-size: 150px;
+            opacity: 0.12;
+            bottom: -30px;
+            right: -30px;
+            transform: rotate(-15deg);
+        }
+
+        .header::after {
+            content: '💕';
+            position: absolute;
+            font-size: 120px;
+            opacity: 0.12;
+            top: -30px;
+            left: -30px;
+            transform: rotate(15deg);
+        }
+
+        .couple-icon {
+            font-size: 80px;
+            margin-bottom: 15px;
+            animation: heartbeat 1.5s infinite;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .header h1 {
+            color: white;
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.25);
+            position: relative;
+            z-index: 1;
+        }
+
+        .header p {
+            color: rgba(255,255,255,0.95);
+            font-size: 16px;
+            margin-top: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Photo frame in header */
+        .photo-frame {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 18px;
+            padding: 5px;
+            background: linear-gradient(135deg, #ffffff, #ffe1c4);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+            position: relative;
+            z-index: 1;
+        }
+
+        .photo-frame-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: #fbe0e4 url('images/bilal.jpg') center/cover no-repeat;
+            border: 3px solid rgba(255,255,255,0.9);
+        }
+
+        /* Content */
+        .content {
+            padding: 35px;
+        }
+
+        /* Big Name */
+        .big-name {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .big-name h2 {
+            font-size: 42px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #d61436, #ff3d68 60%, #ffb020);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .big-name .sub {
+            font-size: 14px;
+            color: #a15;
+            margin-top: 5px;
+        }
+
+        /* Sorry Section */
+        .sorry-section {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe3e8 100%);
+            border-radius: 35px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-left: 6px solid #d61436;
+            position: relative;
+        }
+
+        .pen-icon {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            font-size: 35px;
+            animation: wave 2s infinite;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-10deg); }
+            75% { transform: rotate(5deg); }
+        }
+
+        .sorry-text {
+            font-size: 16px;
+            line-height: 1.9;
+            color: #2c3e50;
+            margin-top: 15px;
+        }
+
+        .sorry-text strong {
+            color: #d61436;
+            font-size: 18px;
+        }
+
+        /* Poetry Container */
+        .poetry-container {
+            background: linear-gradient(135deg, #fef9f0 0%, #fff2e0 100%);
+            border-radius: 35px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(214,20,54,0.06);
+            border: 1px solid #ffd6a5;
+        }
+
+        .poetry-title {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 20px;
+            color: #d61436;
+            font-weight: 700;
+            font-family: 'Noto Nastaliq Urdu', cursive;
+        }
+
+        .poetry-content {
+            font-family: 'Noto Nastaliq Urdu', 'Courier New', monospace;
+            font-size: 18px;
+            line-height: 2;
+            color: #2c3e50;
+            text-align: center;
+            white-space: pre-wrap;
+        }
+
+        .urdu-line {
+            font-family: 'Noto Nastaliq Urdu', cursive;
+            font-size: 20px;
+            margin: 15px 0;
+            color: #2d3436;
+        }
+
+        .roman-line {
+            font-size: 15px;
+            color: #636e72;
+            margin-top: -10px;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        /* Decorative Divider */
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .divider span {
+            font-size: 20px;
+        }
+
+        .divider-line {
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(90deg, #d61436, #ffb020);
+        }
+
+        /* Video Section */
+        .video-section {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffeef4 100%);
+            border-radius: 35px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(214,20,54,0.12);
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 550px) {
+            .video-grid { grid-template-columns: 1fr; }
+        }
+
+        .video-slot {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(214,20,54,0.15);
+            border: 2px solid #ffffff;
+            background: #2a0d14;
+            aspect-ratio: 9 / 13;
+        }
+
+        .video-slot video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            background: linear-gradient(135deg, #fef9f0 0%, #fff2e0 100%);
+            border-radius: 35px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid #ffd6a5;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin-top: 20px;
+        }
+
+        .gallery-pin {
+            border-radius: 18px;
+            overflow: hidden;
+            aspect-ratio: 1 / 1.1;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border: 2px solid #ffffff;
+            background: #fbe0e4;
+        }
+
+        .gallery-pin img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #d61436 0%, #7a0d22 100%);
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-size: 13px;
+        }
+
+        .footer p {
+            opacity: 0.9;
+        }
+
+        /* Responsive */
+        @media (max-width: 550px) {
+            .content {
+                padding: 25px;
+            }
+            .big-name h2 {
+                font-size: 32px;
+            }
+            .urdu-line {
+                font-size: 16px;
+            }
+            .header h1 {
+                font-size: 32px;
+            }
+            .photo-frame {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Stars Background -->
+<div class="stars" id="starsBg"></div>
+
+<!-- Floating Hearts -->
+<div class="heart-bg" id="heartBg"></div>
+
+<!-- Hidden Audio - Auto Play -->
+<audio id="bgMusic" loop preload="auto" autoplay>
+    <source src="audio/song.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+    <div class="card">
+        <div class="header">
+            <div class="photo-frame">
+                <div class="photo-frame-inner"></div>
+            </div>
+            <h1>❤️ BILAL ❤️</h1>
+            <p>✨ A Letter From My Heart ✨</p>
+        </div>
+
+        <div class="content">
+            <!-- Big Name Display -->
+            <div class="big-name">
+                <h2>BILAL</h2>
+                <div class="sub">🌟 The One Who Owns My Heart 🌟</div>
+            </div>
+
+            <!-- Sorry Section -->
+            <div class="sorry-section">
+                <div class="pen-icon">✍️ 💌</div>
+                <div class="sorry-text">
+                    <strong>💔 میری جان BILAL، 💔</strong><br><br>
+                    میں جانتی ہوں مجھ سے غلطیاں ہوئی ہیں، میں نے تمہیں ٹھیس پہنچائی ہے۔ ہر روز میں اپنی غلطیوں کا وزن اپنے دل میں اٹھاتی ہوں۔<br><br>
+                    <strong>مجھے سچ میں بہت افسوس ہے۔ 🙏</strong><br><br>
+                    میں نے کبھی بھی ہمارے درمیان دوری نہیں چاہی تھی۔ میں نے کبھی بھی تمہاری آنکھوں میں آنسو نہیں دیکھنا چاہا۔ میں صرف تمہاری مسکراہٹ، تمہارا اعتماد، اور تمہاری محبت دوبارہ چاہتی ہوں۔<br><br>
+                    <strong>پلیز مجھے نظر انداز نہ کرو۔ 🤝</strong><br><br>
+                    تم میرے لیے سب کچھ ہو - الفاظ سے زیادہ نہیں بتا سکتی۔ ❤️<br>
+                    تمہارے بغیر یہ دل بے قرار ہے، تمہارے بغیر یہ روح اداس ہے۔
+                </div>
+            </div>
+
+            <!-- Poetry Section -->
+            <div class="poetry-container">
+                <div class="poetry-title">
+                    🌹 میرے دل کی آواز 🌹
+                </div>
+                <div class="poetry-content">
+                    <div class="urdu-line">
+                        🌸 تیرے بغیر یہ دل لگتا نہیں، 🌸
+                    </div>
+                    <div class="roman-line">
+                        "Tere bina yeh dil lagta nahi"
+                    </div>
+
+                    <div class="urdu-line">
+                        ہر سانس تَجھ سے ہی مِلتی ہے،
+                    </div>
+                    <div class="roman-line">
+                        "Har saans tujhse hi milti hai"
+                    </div>
+
+                    <div class="urdu-line">
+                        ہر دھڑکن تُجھ پہ ہی مَرتی ہے۔
+                    </div>
+                    <div class="roman-line">
+                        "Har dhadkan tujhpe hi marti hai"
+                    </div>
+
+                    <div class="divider">
+                        <span class="divider-line"></span>
+                        <span>💕</span>
+                        <span class="divider-line"></span>
+                    </div>
+
+                    <div class="urdu-line">
+                        💕 جَب سے تُو دُور ہے مُجھ سے، 💕
+                    </div>
+                    <div class="roman-line">
+                        "Jab se tu door hai mujhse"
+                    </div>
+
+                    <div class="urdu-line">
+                        ہر صُبح شام اُداس رہتی ہے۔
+                    </div>
+                    <div class="roman-line">
+                        "Har subah sham udas rehti hai"
+                    </div>
+
+                    <div class="divider">
+                        <span class="divider-line"></span>
+                        <span>🌟</span>
+                        <span class="divider-line"></span>
+                    </div>
+
+                    <div class="urdu-line">
+                        🌟 تیری یادوں کا سایہ ہے، 🌟
+                    </div>
+                    <div class="roman-line">
+                        "Teri yaadon ka saya hai"
+                    </div>
+
+                    <div class="urdu-line">
+                        ہر پَل دِل کو تڑپاتا ہے۔
+                    </div>
+                    <div class="roman-line">
+                        "Har pal dil ko tarpaata hai"
+                    </div>
+
+                    <div class="divider">
+                        <span class="divider-line"></span>
+                        <span>🤝</span>
+                        <span class="divider-line"></span>
+                    </div>
+
+                    <div class="urdu-line">
+                        🫂 میں وعدہ کرتی ہُوں اَب، 🫂
+                    </div>
+                    <div class="roman-line">
+                        "Main waada karti hoon ab"
+                    </div>
+
+                    <div class="urdu-line">
+                        تیرے آنسُو نَہ بَہنے دُوں گی۔
+                    </div>
+                    <div class="roman-line">
+                        "Tere aansoo nahi bahne doongi"
+                    </div>
+
+                    <div class="divider">
+                        <span class="divider-line"></span>
+                        <span>❤️</span>
+                        <span class="divider-line"></span>
+                    </div>
+
+                    <div class="urdu-line">
+                        ❤️ بلال، تُو ہے میری جان، ❤️
+                    </div>
+                    <div class="roman-line">
+                        "BILAL, tu hai meri jaan"
+                    </div>
+
+                    <div class="urdu-line">
+                        تیرے بغیر یہ دُنیا ہے ویِران۔
+                    </div>
+                    <div class="roman-line">
+                        "Tere bina yeh duniya hai veeran"
+                    </div>
+
+                    <div class="divider">
+                        <span class="divider-line"></span>
+                        <span>✨</span>
+                        <span class="divider-line"></span>
+                    </div>
+
+                    <div class="urdu-line">
+                        🤝 پلیز مُجھے مَعاف کَر دے، 🤝
+                    </div>
+                    <div class="roman-line">
+                        "Please mujhe maaf kar de"
+                    </div>
+
+                    <div class="urdu-line">
+                        ہمیشہ تیرا ہی رَہُوں گی۔
+                    </div>
+                    <div class="roman-line">
+                        "Hamesha tera hi rahoongi"
+                    </div>
+
+                    <div class="divider">
+                        <span class="divider-line"></span>
+                        <span>💖</span>
+                        <span class="divider-line"></span>
+                    </div>
+
+                    <div class="urdu-line">
+                        ✨ I LOVE YOU, BILAL ✨
+                    </div>
+                </div>
+            </div>
+
+            <!-- Extra Shayari Section -->
+            <div class="poetry-container">
+                <div class="poetry-title">
+                    💖 چند اور باتیں دل کی 💖
+                </div>
+                <div class="poetry-content">
+                    <div class="urdu-line">
+                        تیری محبت میری زندگی کا سرمایہ ہے،
+                    </div>
+                    <div class="roman-line">
+                        "Teri mohabbat meri zindagi ka sarmaya hai"
+                    </div>
+
+                    <div class="urdu-line">
+                        ہر خوشی ادھوری ہے جو تیرے بنا آئے۔
+                    </div>
+                    <div class="roman-line">
+                        "Har khushi adhoori hai jo tere bina aaye"
+                    </div>
+
+                    <div class="divider">
+                        <span class="divider-line"></span>
+                        <span>🌹</span>
+                        <span class="divider-line"></span>
+                    </div>
+
+                    <div class="urdu-line">
+                        چاہت میں تیری ہر رنگ بسا لیا ہے،
+                    </div>
+                    <div class="roman-line">
+                        "Chahat mein teri har rang basa liya hai"
+                    </div>
+
+                    <div class="urdu-line">
+                        دل کے ہر کونے میں تجھے سجا لیا ہے۔
+                    </div>
+                    <div class="roman-line">
+                        "Dil ke har kone mein tujhe saja liya hai"
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Section -->
+            <div class="video-section">
+                <div class="poetry-title">
+                    🎥 یادگار لمحے 🎥
+                </div>
+                <div class="video-grid">
+                    <div class="video-slot">
+                        <video controls src="videos/video1.mp4"></video>
+                    </div>
+                    <div class="video-slot">
+                        <video controls src="videos/video2.mp4"></video>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Section -->
+            <div class="gallery-section">
+                <div class="poetry-title">
+                    📸 تصویری جھلکیاں 📸
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-pin"><img src="images/pin1.jpg" alt="pin"></div>
+                    <div class="gallery-pin"><img src="images/pin2.jpg" alt="pin"></div>
+                </div>
+            </div>
+
+            <!-- Message Line -->
+            <div style="text-align: center; margin: 20px 0; font-size: 14px; color: #a15; font-style: italic;">
+                💫 You are my today and all of my tomorrows 💫
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>💕 Made with Love for BILAL | Forever Yours 💕</p>
+            <p style="font-size: 11px; margin-top: 5px;">✨ Every beat of my heart says your name ✨</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Force autoplay audio (works on most browsers)
+    const audio = document.getElementById('bgMusic');
+
+    function tryPlay() {
+        audio.play().then(() => {
+            console.log('Music playing');
+        }).catch(() => {
+            console.log('Auto-play blocked, retrying...');
+            setTimeout(tryPlay, 100);
+        });
+    }
+
+    // Start playing as soon as possible
+    tryPlay();
+
+    // Also trigger on any user interaction if needed
+    document.body.addEventListener('touchstart', function() {
+        audio.play().catch(() => {});
+    }, { once: true });
+
+    document.body.addEventListener('click', function() {
+        audio.play().catch(() => {});
+    }, { once: true });
+
+    // Create Floating Hearts
+    function createFloatingHearts() {
+        const heartBg = document.getElementById('heartBg');
+        const hearts = ['❤️', '💖', '💗', '💕', '💓', '💘', '💝', '💞'];
+        for (let i = 0; i < 40; i++) {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = 8 + Math.random() * 10 + 's';
+            heart.style.animationDelay = Math.random() * 15 + 's';
+            heart.style.fontSize = 18 + Math.random() * 25 + 'px';
+            heartBg.appendChild(heart);
+        }
+    }
+
+    // Create Stars
+    function createStars() {
+        const starsBg = document.getElementById('starsBg');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.innerHTML = '⭐';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDuration = 2 + Math.random() * 4 + 's';
+            star.style.animationDelay = Math.random() * 5 + 's';
+            star.style.fontSize = 8 + Math.random() * 12 + 'px';
+            starsBg.appendChild(star);
+        }
+    }
+
+    // Initialize
+    createFloatingHearts();
+    createStars();
+
+    // Animated title
+    let titleText = "💕 BILAL | I Love You 💕";
+    let titleIndex = 0;
+    function animateTitle() {
+        document.title = titleText.substring(0, titleIndex);
+        titleIndex++;
+        if (titleIndex <= titleText.length) {
+            setTimeout(animateTitle, 200);
+        }
+    }
+    animateTitle();
+</script>
+
+</body>
+</html>
